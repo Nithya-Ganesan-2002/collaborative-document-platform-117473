@@ -1,0 +1,23 @@
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div class="logo">CollabDocs</div>
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Documents</a>
+      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/login" routerLinkActive="active">Logout</a>
+    </nav>
+  </aside>
+  <main class="main-panel">
+    <h2>My Documents</h2>
+    <button class="new-doc-btn" routerLink="/document/new">+ New Document</button>
+    <div *ngIf="loading">Loading documents...</div>
+    <div *ngIf="error" class="error">{{error}}</div>
+    <ul class="document-list" *ngIf="!loading && documents.length">
+      <li *ngFor="let doc of documents" (click)="openDocument(doc)">
+        <div class="doc-title">{{doc.title}}</div>
+        <div class="doc-date">{{doc.updatedAt | date:'short'}}</div>
+      </li>
+    </ul>
+    <div *ngIf="!loading && !documents.length">No documents found.</div>
+  </main>
+</div>

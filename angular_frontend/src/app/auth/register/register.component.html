@@ -1,0 +1,35 @@
+<div class="auth-form-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="auth-form">
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="username"
+      placeholder="Username"
+      required
+      autocomplete="username"
+    />
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      placeholder="Email"
+      required
+      autocomplete="email"
+    />
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      placeholder="Password"
+      required
+      autocomplete="new-password"
+    />
+    <button type="submit" [disabled]="loading">Register</button>
+    <p class="auth-error" *ngIf="error">{{ error }}</p>
+  </form>
+  <p>
+    Already have an account?
+    <a [routerLink]="['/login']">Login</a>
+  </p>
+</div>

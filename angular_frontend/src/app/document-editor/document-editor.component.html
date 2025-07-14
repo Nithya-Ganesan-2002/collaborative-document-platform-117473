@@ -1,0 +1,26 @@
+<div class="editor-page">
+  <div *ngIf="loading" class="loading-msg">Loading document...</div>
+  <div *ngIf="error" class="error-msg">{{error}}</div>
+  <div *ngIf="!loading && !error" class="editor-container">
+    <input
+      class="doc-title-input"
+      placeholder="Document title"
+      [(ngModel)]="title"
+      [readonly]="!!document"
+      *ngIf="docId==='new'"
+      required />
+    <h2 *ngIf="docId!=='new'">{{title}}</h2>
+    <textarea
+      class="editor"
+      [(ngModel)]="content"
+      [readonly]="loading"
+      rows="17"
+      placeholder="Start editing..."
+      ></textarea>
+    <div class="editor-actions">
+      <button (click)="onSave()" [disabled]="loading">{{ docId==='new' ? 'Create' : 'Save' }}</button>
+      <span class="save-status">{{saveStatus}}</span>
+      <span *ngIf="collaborationMsg" class="collab-msg">{{collaborationMsg}}</span>
+    </div>
+  </div>
+</div>

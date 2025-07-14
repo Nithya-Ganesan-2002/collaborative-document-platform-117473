@@ -1,0 +1,12 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading && user" class="profile-container">
+  <h2>User Profile</h2>
+  <div>
+    <label>Username:</label>
+    <span>{{ user.username }}</span>
+  </div>
+  <div>
+    <label>Email:</label>
+    <span>{{ user.email }}</span>
+  </div>
+</div>

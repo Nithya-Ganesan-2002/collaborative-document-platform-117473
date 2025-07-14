@@ -1,0 +1,27 @@
+<div class="auth-form-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="auth-form">
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      placeholder="Email"
+      required
+      autocomplete="username"
+    />
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      placeholder="Password"
+      required
+      autocomplete="current-password"
+    />
+    <button type="submit" [disabled]="loading">Login</button>
+    <p class="auth-error" *ngIf="error">{{ error }}</p>
+  </form>
+  <p>
+    Don't have an account?
+    <a [routerLink]="['/register']">Register</a>
+  </p>
+</div>
