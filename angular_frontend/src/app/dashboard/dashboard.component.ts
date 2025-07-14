@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { Document } from '../services/document.service';
 // PUBLIC_INTERFACE
 @Component({
   selector: 'app-dashboard',

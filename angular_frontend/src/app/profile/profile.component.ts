@@ -1,6 +1,7 @@
+// Import User type from AuthService
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { User } from '../services/auth.service';
 // PUBLIC_INTERFACE
 @Component({
   selector: 'app-profile',
